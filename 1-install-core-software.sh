@@ -3,10 +3,6 @@
 set -e
 
 apt_softwares=(
-    "apt-transport-https"
-    "openssl"
-    "software-properties-common"
-    "python-software-properties"
     "git"
     "curl"
     "wget"
@@ -15,21 +11,25 @@ apt_softwares=(
     "unzip"
     "vim"
     "gcc"
+    "libgmp-dev"
+    "python3"
     "opam" # ocaml
 )
 
 flatpak_softwares=(
     "com.google.Chrome"
-    "com.visualstudio.code"
     "com.spotify.Client"
+    "us.zoom.Zoom"
+    "com.slack.Slack"
+    "com.discordapp.Discord"
 )
 
 for asw in "${apt_softwares[@]}"; do
     sudo apt-get install -y $asw
 done
 
-for fsw in "${apt_softwares[@]}"; do
-    sudo flatpak install -y --noninteractive $fsw
+for fsw in "${flatpak_softwares[@]}"; do
+    flatpak install -y --noninteractive flathub $fsw
 done
 
 # haskell: ghcup
