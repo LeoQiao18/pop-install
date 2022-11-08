@@ -22,6 +22,8 @@ flatpak_softwares=(
     "us.zoom.Zoom"
     "com.slack.Slack"
     "com.discordapp.Discord"
+    "md.obsidian.Obsidian"
+    "com.obsproject.Studio"
 )
 
 for asw in "${apt_softwares[@]}"; do
@@ -33,7 +35,7 @@ for fsw in "${flatpak_softwares[@]}"; do
 done
 
 # haskell: ghcup
-if ! command -v ghcup &> \dev\null
+if ! command -v ghcup &> /dev/null
 then
     curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 fi
